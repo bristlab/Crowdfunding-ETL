@@ -1,6 +1,6 @@
 campaign
 -
-cf_id int PK FK >- backers.cf_id
+cf_id int PK
 contact_id int FK - contacts.contact_id
 company_name varchar(100)
 description text
@@ -35,7 +35,7 @@ email varchar(100)
 backers
 -
 backer_id varchar(10) PK
-cf_id int 
+cf_id int FK >- campaign.cf_id
 first_name varchar(50) 
 last_name varchar(50) 
 email varchar(100)

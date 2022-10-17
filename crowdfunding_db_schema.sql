@@ -59,9 +59,6 @@ CREATE TABLE "backers" (
      )
 );
 
-ALTER TABLE "campaign" ADD CONSTRAINT "fk_campaign_cf_id" FOREIGN KEY("cf_id")
-REFERENCES "backers" ("cf_id");
-
 ALTER TABLE "campaign" ADD CONSTRAINT "fk_campaign_contact_id" FOREIGN KEY("contact_id")
 REFERENCES "contacts" ("contact_id");
 
@@ -71,3 +68,16 @@ REFERENCES "category" ("category_id");
 ALTER TABLE "campaign" ADD CONSTRAINT "fk_campaign_subcategory_id" FOREIGN KEY("subcategory_id")
 REFERENCES "subcategory" ("subcategory_id");
 
+ALTER TABLE "backers" ADD CONSTRAINT "fk_backers_cf_id" FOREIGN KEY("cf_id")
+REFERENCES "campaign" ("cf_id");
+
+
+-- Drop Table section included for troubleshooting
+-- DROP TABLE "campaign" CASCADE
+-- DROP TABLE "backers" CASCADE
+-- DROP TABLE "category" CASCADE
+-- DROP TABLE "subcategory" CASCADE
+-- DROP TABLE "contacts" CASCADE
+
+
+SELECT * FROM backers
